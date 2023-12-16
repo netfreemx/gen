@@ -19,7 +19,8 @@ import org.json.JSONObject;
 
 public class NetFreeMXGen {
     private static final String TAG = "NetFreeMXGen";
-    private NetFreeMXGen instance;
+    @SuppressLint("StaticFieldLeak")
+    private static NetFreeMXGen instance;
     private boolean tokenMode = false;
     private Context context;
     private String tokenPassword = "";
@@ -28,7 +29,7 @@ public class NetFreeMXGen {
 
     private NetFreeMXGen() {}
 
-    public NetFreeMXGen getInstance() {
+    public static NetFreeMXGen getInstance() {
         if (instance == null) {
             instance = new NetFreeMXGen();
         }
